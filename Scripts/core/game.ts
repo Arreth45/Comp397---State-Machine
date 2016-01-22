@@ -13,7 +13,7 @@ var helloLabel: objects.Label;
 var startButton: objects.Button;
 
 
-function init():void {
+function init(): void {
     canvas = document.getElementById("canvas"); // reference to canvas element
     stage = new createjs.Stage(canvas); // passing canvas to stage
     stage.enableMouseOver(20); // enable mouse events
@@ -35,7 +35,7 @@ function gameLoop(event: createjs.Event): void {
 }
 
 // Setup Game Stats
-function setupStats():void {
+function setupStats(): void {
     stats = new Stats();
     stats.setMode(0); // shows fps
     stats.domElement.style.position = "absolute";
