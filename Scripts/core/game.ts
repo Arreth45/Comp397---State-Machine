@@ -1,5 +1,29 @@
-﻿/// <reference path="_reference.ts"/>
+﻿/// <reference path="_reference.ts" />
 
+var canvas: HTMLElement;
+var stage: createjs.Stage;
+var helloLabel: createjs.Text; 
+
+function init():void{
+    canvas = document.getElementById("canvas");
+    stage = new createjs.Stage(canvas);
+    createjs.Ticker.setFPS(60); // set frame rate to 60
+    createjs.Ticker.on("tick", gameLoop, this);
+    main();
+}
+
+function gameLoop(event:createjs.Event):void{
+    stage.update();
+}
+
+function main(){
+    console.log("Game Started");
+    
+    helloLabel = new createjs.Text("Hello","60px sans","#000000");
+    stage.addChild(helloLabel);
+}
+
+/*
 // GLOBAL GAME FRAMEWORK VARIABLES
 var canvas: HTMLElement;
 var stage: createjs.Stage;
@@ -71,4 +95,5 @@ function changeState(): void {
 
     stateFunction();
 }
- 
+
+*/
