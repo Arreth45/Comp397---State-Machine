@@ -10,6 +10,7 @@ function init() {
     main();
 }
 function gameLoop(event) {
+    helloLabel.rotation += 5;
     stage.update();
 }
 function main() {
@@ -18,7 +19,7 @@ function main() {
     helloLabel.regX = helloLabel.getMeasuredWidth() * 0.5;
     helloLabel.regY = helloLabel.getMeasuredHeight() * 0.5;
     helloLabel.x = 320;
-    helloLabel.y = 480;
+    helloLabel.y = 240;
     stage.addChild(helloLabel);
 }
 /*
