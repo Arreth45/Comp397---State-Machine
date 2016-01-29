@@ -12,8 +12,8 @@
         public static CENTRE_X: number = 320;
         public static CENTRE_Y: number = 240;
     }
-    
-    export class Game{
+
+    export class Game {
         public static FPS: number = 60;
     }
 }

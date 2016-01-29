@@ -1,7 +1,6 @@
 ﻿/// <reference path="_reference.ts" />
 
 import CScreen = config.Screen;
-import CGame = config.Game;
 
 var canvas: HTMLElement;
 var stage: createjs.Stage;
@@ -13,7 +12,7 @@ function init(): void {
     //Create our main Display List Container
     stage = new createjs.Stage(canvas);
      // set frame rate to 60
-    createjs.Ticker.setFPS(CGame.FPS);
+    createjs.Ticker.setFPS(config.Game.FPS);
     //Create an event listener to count off frames
     createjs.Ticker.on("tick", gameLoop, this);
     main();
