@@ -4,14 +4,15 @@ import CScreen = config.Screen;
 
 var canvas: HTMLElement;
 var stage: createjs.Stage;
-var helloLabel: createjs.Text;
+
+var menu: scenes.Menu;
 
 function init(): void {
     //Create a ref to the HTML Canvas element Canvas
     canvas = document.getElementById("canvas");
     //Create our main Display List Container
     stage = new createjs.Stage(canvas);
-     // set frame rate to 60
+    // set frame rate to 60
     createjs.Ticker.setFPS(config.Game.FPS);
     //Create an event listener to count off frames
     createjs.Ticker.on("tick", gameLoop, this);
@@ -20,19 +21,12 @@ function init(): void {
 
 //main gameloop function that handles what happens each "tick" or frame
 function gameLoop(event: createjs.Event): void {
-    helloLabel.rotation += 5;
+    menu.update();
     stage.update();
 }
 
 function main() {
-    console.log("Game Started");
-
-    helloLabel = new createjs.Text("Hello World", "60px Sans", "#000000");
-    helloLabel.regX = helloLabel.getMeasuredWidth() *0.5;
-    helloLabel.regY = helloLabel.getMeasuredHeight() *0.5;
-    helloLabel.x = CScreen.CENTRE_X;
-    helloLabel.y = CScreen.CENTRE_Y;
-    stage.addChild(helloLabel);
+    menu = new scenes.Menu();
 }
 
 /*

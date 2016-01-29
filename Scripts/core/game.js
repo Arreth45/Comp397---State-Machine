@@ -2,7 +2,7 @@
 var CScreen = config.Screen;
 var canvas;
 var stage;
-var helloLabel;
+var menu;
 function init() {
     //Create a ref to the HTML Canvas element Canvas
     canvas = document.getElementById("canvas");
@@ -16,17 +16,11 @@ function init() {
 }
 //main gameloop function that handles what happens each "tick" or frame
 function gameLoop(event) {
-    helloLabel.rotation += 5;
+    menu.update();
     stage.update();
 }
 function main() {
-    console.log("Game Started");
-    helloLabel = new createjs.Text("Hello World", "60px Sans", "#000000");
-    helloLabel.regX = helloLabel.getMeasuredWidth() * 0.5;
-    helloLabel.regY = helloLabel.getMeasuredHeight() * 0.5;
-    helloLabel.x = CScreen.CENTRE_X;
-    helloLabel.y = CScreen.CENTRE_Y;
-    stage.addChild(helloLabel);
+    menu = new scenes.Menu();
 }
 /*
 // GLOBAL GAME FRAMEWORK VARIABLES
