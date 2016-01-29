@@ -21,11 +21,17 @@ var scenes;
             this._helloLabel.x = CScreen.CENTRE_X;
             this._helloLabel.y = CScreen.CENTRE_Y;
             this.addChild(this._helloLabel);
+            this._startButton = new objects.Button("StartButton", config.Screen.CENTRE_X, config.Screen.CENTRE_Y + 60);
+            this.addChild(this._startButton);
+            this._startButton.on("click", this._startButtonClick, this);
             stage.addChild(this);
         };
         //menu updates
         Menu.prototype.update = function () {
-            this._helloLabel.rotation -= 5;
+        };
+        //Event Handlers
+        Menu.prototype._startButtonClick = function (event) {
+            this._helloLabel.text = "Game Started";
         };
         return Menu;
     })(objects.Scene);

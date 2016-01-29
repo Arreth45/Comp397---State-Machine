@@ -3,6 +3,7 @@ module scenes {
     export class Menu extends objects.Scene {
         //private variables
         private _helloLabel: createjs.Text;
+        private _startButton: objects.Button;
         //
         constructor() {
             super();
@@ -19,11 +20,27 @@ module scenes {
             this._helloLabel.y = CScreen.CENTRE_Y;
 
             this.addChild(this._helloLabel);
+
+            this._startButton = new objects.Button(
+                "StartButton",
+                config.Screen.CENTRE_X,
+                config.Screen.CENTRE_Y + 60);
+
+            this.addChild(this._startButton);
+
+            this._startButton.on("click", this._startButtonClick, this);
+
+
             stage.addChild(this);
         }
         //menu updates
         public update(): void {
-            this._helloLabel.rotation -= 5;
+
+        }
+        
+        //Event Handlers
+        private _startButtonClick(event: createjs.MouseEvent) {
+            this._helloLabel.text = "Game Started";
         }
     }
 }
